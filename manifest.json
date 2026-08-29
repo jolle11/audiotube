@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "2.0.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "action": {
+    "default_title": "AudioTube",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["player-bridge.js"],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ],
+  "commands": {
+    "toggle-focus-mode": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "windows": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+A",
+        "linux": "Ctrl+Shift+Y",
+        "chromeos": "Ctrl+Shift+Y"
+      },
+      "description": "__MSG_focusCommandDescription__"
+    }
+  }
+}

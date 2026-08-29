@@ -1,0 +1,43 @@
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; width: 390px; background: #101010; color: #f7f7f7; }
+main { padding: 20px; }
+header { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; }
+.logo { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: #ff0033; font-size: 24px; box-shadow: 0 8px 28px #ff003344; }
+h1 { margin: 0; font-size: 20px; letter-spacing: -.02em; }
+p { margin: 3px 0 0; color: #999; font-size: 12px; }
+.hero { display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid #303030; border-radius: 14px; background: #191919; cursor: pointer; }
+.hero span { display: grid; gap: 3px; }
+small { color: #929292; font-size: 11px; }
+.hero input { display: none; }
+.hero i { width: 48px; height: 27px; border-radius: 20px; background: #404040; position: relative; transition: .2s; }
+.hero i::after { content: ""; position: absolute; top: 4px; left: 4px; width: 19px; height: 19px; border-radius: 50%; background: white; transition: .2s; }
+.hero input:checked + i { background: #ff0033; }
+.hero input:checked + i::after { transform: translateX(21px); }
+.options { margin-top: 12px; border: 1px solid #292929; border-radius: 12px; overflow: hidden; }
+.options label { display: flex; justify-content: space-between; padding: 12px 14px; background: #171717; font-size: 13px; cursor: pointer; }
+.options label + label { border-top: 1px solid #292929; }
+input[type="checkbox"] { accent-color: #ff0033; }
+.timer { margin-top: 12px; display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center; padding: 13px 14px; background: #171717; border: 1px solid #292929; border-radius: 12px; font-size: 13px; }
+.timer small { grid-column: 1 / -1; }
+select { border: 1px solid #383838; border-radius: 7px; padding: 5px; background: #232323; color: white; }
+footer { margin-top: 16px; display: grid; gap: 8px; color: #777; text-align: center; font-size: 11px; }
+kbd { padding: 2px 5px; border: 1px solid #383838; border-radius: 4px; background: #1d1d1d; color: #bbb; }
+#shortcut { display: inline-flex; align-items: center; gap: 5px; margin-right: 6px; vertical-align: middle; }
+#shortcut kbd { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 2px 6px; font-size: 12px; line-height: 1; }
+.shortcut-plus { color: #666; }
+.notice { padding: 12px; border-radius: 9px; background: #2a171b; color: #ff9caf; line-height: 1.4; }
+.disabled { opacity: .45; pointer-events: none; }
+.block { margin-top: 12px; display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border: 1px solid #292929; border-radius: 12px; background: #171717; font-size: 13px; }
+.playback { margin-top: 12px; display: grid; grid-template-columns: auto 1fr auto; gap: 7px; }
+button { border: 1px solid #383838; border-radius: 8px; padding: 8px 10px; background: #222; color: #eee; cursor: pointer; }
+button:hover { background: #303030; }
+button:disabled { color: #777; cursor: default; }
+.playback label { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; padding: 5px 4px; color: #aaa; font-size: 12px; }
+.timer { grid-template-columns: 1fr auto; }
+.timer > div { display: grid; gap: 5px; }
+.timer .fade { color: #999; font-size: 11px; }
+.timer button { padding: 5px 8px; font-size: 11px; }
+details { margin-top: 12px; }
+summary { padding: 8px 2px; color: #aaa; font-size: 12px; cursor: pointer; }
+details .options { margin-top: 4px; }
