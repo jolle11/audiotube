@@ -14,7 +14,7 @@ La interfaz usa automáticamente el idioma configurado en Chrome. Incluye traduc
 
 ## Funciones
 
-- Atajo único de concentración: `Ctrl + Shift + Y` en Windows/Linux/ChromeOS y `Command + Shift + A` en macOS. Al activarlo también se activa siempre el modo solo audio. El popup muestra la combinación que Chrome tenga asignada realmente.
+- Atajo único de concentración: `Ctrl + Shift + Y` en Windows/Linux/ChromeOS y `Command + Shift + A` en macOS. Al activarlo también se activa siempre el modo solo audio. El popup muestra la combinación que Chrome tenga asignada realmente; si no hay ninguna, se configura en `chrome://extensions/shortcuts`.
 - Reproductor compacto con progreso, volumen, velocidad, saltos y anterior/siguiente.
 - Calidad mínima inteligente mientras el vídeo está oculto, restaurada al salir.
 - Activación automática opcional.

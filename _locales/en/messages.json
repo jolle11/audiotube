@@ -33,6 +33,7 @@
   "focusMode": { "message": "Focus mode" },
   "quickSkip": { "message": "Quick skip" },
   "focusShortcut": { "message": "Focus" },
+  "shortcutUnassigned": { "message": "Shortcut not assigned" },
   "timeRemaining": { "message": "$TIME$ remaining", "placeholders": { "time": { "content": "$1" } } },
   "stopsAfterVideo": { "message": "Will stop at the end of the video" },
   "stopsAfterPlaylist": { "message": "Will stop at the end of the playlist" },

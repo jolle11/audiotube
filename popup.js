@@ -7,16 +7,15 @@ function localizePage() {
   document.querySelectorAll("[data-i18n]").forEach((element) => { element.textContent = t(element.dataset.i18n); });
 }
 async function renderShortcut() {
-  const platform = navigator.userAgentData?.platform || navigator.platform || "";
-  const isMac = /mac/i.test(platform);
   const commands = await chrome.commands.getAll();
   const assigned = commands.find((command) => command.name === "toggle-focus-mode")?.shortcut;
-  const fallback = isMac ? "Command+Shift+A" : "Ctrl+Shift+Y";
-  const rawShortcut = assigned || fallback;
-  const keys = isMac
-    ? ["⌘", "⇧", "A"]
-    : rawShortcut.split("+").map((key) => key === "Command" ? "⌘" : key);
-  document.querySelector("#shortcut").innerHTML = keys
+  const shortcut = document.querySelector("#shortcut");
+  if (!assigned) {
+    shortcut.textContent = t("shortcutUnassigned");
+    return;
+  }
+  const keys = assigned.split("+").map((key) => ({ Command: "⌘", Shift: "⇧", Option: "⌥", MacCtrl: "⌃" })[key] || key);
+  shortcut.innerHTML = keys
     .map((key) => `<kbd>${key}</kbd>`)
     .join('<span class="shortcut-plus">+</span>');
 }

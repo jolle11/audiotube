@@ -33,6 +33,7 @@
   "focusMode": { "message": "Modo concentración" },
   "quickSkip": { "message": "Salto rápido" },
   "focusShortcut": { "message": "Concentración" },
+  "shortcutUnassigned": { "message": "Atajo sin asignar" },
   "timeRemaining": { "message": "Quedan $TIME$", "placeholders": { "time": { "content": "$1" } } },
   "stopsAfterVideo": { "message": "Se detendrá al terminar el vídeo" },
   "stopsAfterPlaylist": { "message": "Se detendrá al terminar la lista" },
