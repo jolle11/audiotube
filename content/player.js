@@ -10,6 +10,8 @@ const AudioTubePlayer = (() => {
     shorts: "ytd-reel-video-renderer[is-active] video, #shorts-player video"
   };
   const SAVE_INTERVAL_MS = 5000;
+  // Mismo dibujo que icons/icon.svg (auriculares + reproducir), sin el fondo, que pone el CSS.
+  const LOGO = `<svg viewBox="0 0 128 128" aria-hidden="true"><path d="M30 76V64a34 34 0 0 1 68 0v12" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/><rect x="22" y="68" width="22" height="34" rx="9" fill="#fff"/><rect x="84" y="68" width="22" height="34" rx="9" fill="#fff"/><path d="M56 70v24l20-12z" fill="#fff"/></svg>`;
 
   let video = null, videoEvents = null, compact = null, refs = null, seeking = false, lastSave = 0, resumedFor = null;
   let hooks = { site: () => "browse", context: () => ({}), audioActive: () => false, onVideoLoaded: () => {}, onRateChange: () => {}, addTime: () => {} };
@@ -55,7 +57,7 @@ const AudioTubePlayer = (() => {
   function createCompactPlayer() {
     const el = document.createElement("div");
     el.id = "audiotube-player";
-    el.innerHTML = `<div class="at-brand"><span>♫</span><strong>AudioTube</strong><small data-ref="title"></small></div>
+    el.innerHTML = `<div class="at-brand"><span>${LOGO}</span><strong>AudioTube</strong><small data-ref="title"></small></div>
       <div class="at-controls"><button data-action="previous" title="${t("previous")}">‹|</button><button data-action="back" title="${t("back")}"></button><button class="at-play" data-action="play" title="${t("playPause")}">▶</button><button data-action="forward" title="${t("forward")}"></button><button data-action="next" title="${t("next")}">|›</button></div>
       <div class="at-progress"><span data-ref="current">0:00</span><input data-ref="seek" type="range" min="0" max="1000" value="0"><span data-ref="duration">0:00</span></div>
       <div class="at-secondary"><span>${t("volume")}</span><input data-ref="volume" type="range" min="0" max="1" step="0.01"><select data-ref="rate" aria-label="${t("speed")}"></select></div>

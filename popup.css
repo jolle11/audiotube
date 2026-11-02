@@ -44,3 +44,4 @@ details .options { margin-top: 4px; }
 #channelRuleRow { cursor: pointer; }
 #channelRuleRow > span { display: grid; gap: 3px; }
 #channelRuleRow.unavailable { opacity: .45; pointer-events: none; }
+#shortcut a { color: #ff5c7a; text-decoration: underline; text-underline-offset: 2px; }

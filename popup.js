@@ -15,7 +15,12 @@ async function renderShortcut() {
   const assigned = commands.find((command) => command.name === "toggle-focus-mode")?.shortcut;
   const shortcut = $("#shortcut");
   if (!assigned) {
-    shortcut.textContent = t("shortcutUnassigned");
+    // Chrome solo aplica el atajo sugerido al instalar y lo omite si choca con otro: se ofrece asignarlo.
+    const link = document.createElement("a");
+    link.href = "#";
+    link.textContent = t("shortcutUnassigned");
+    link.addEventListener("click", (event) => { event.preventDefault(); chrome.tabs.create({ url: "chrome://extensions/shortcuts" }); });
+    shortcut.replaceChildren(link);
     return;
   }
   const keys = assigned.split("+").map((key) => ({ Command: "⌘", Shift: "⇧", Option: "⌥", MacCtrl: "⌃" })[key] || key);
