@@ -7,41 +7,14 @@ html.audiotube-audio-mode #movie_player {
   overflow: hidden !important;
 }
 
-/* En solo audio, el reproductor de AudioTube es la única capa visual permitida. */
-html.audiotube-audio-mode #movie_player > *:not(#audiotube-player):not(.html5-video-container) {
+/* En solo audio, el reproductor de AudioTube es la única capa visual permitida,
+   salvo durante los anuncios: se dejan visibles sus controles y el botón «Saltar». */
+html.audiotube-audio-mode #movie_player:not(.ad-showing) > *:not(#audiotube-player):not(.html5-video-container) {
   display: none !important;
 }
 
 html.audiotube-audio-mode #movie_player .html5-video-container > *:not(video) {
   display: none !important;
-}
-
-html.audiotube-audio-mode #movie_player::before {
-  content: "";
-  white-space: pre;
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  color: #f7f7f7;
-  font: 700 clamp(18px, 3vw, 34px)/1.7 system-ui, sans-serif;
-  letter-spacing: .18em;
-  text-align: center;
-  pointer-events: none;
-  z-index: 1;
-  opacity: .78;
-}
-
-html.audiotube-audio-mode #movie_player::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: calc(50% - 64px);
-  transform: translate(-50%, -50%);
-  color: #ff0033;
-  font: 700 42px/1 system-ui, sans-serif;
-  pointer-events: none;
-  z-index: 2;
 }
 
 #audiotube-player { display: none; }
@@ -51,8 +24,9 @@ html.audiotube-audio-mode #audiotube-player {
   background: radial-gradient(circle at 50% 35%, #282828 0, #0b0b0b 68%); color: #fff;
   font-family: Inter, system-ui, sans-serif;
 }
-html.audiotube-audio-mode .ytp-chrome-bottom,
-html.audiotube-audio-mode .ytp-gradient-bottom { visibility: hidden !important; }
+html.audiotube-audio-mode #movie_player:not(.ad-showing) .ytp-chrome-bottom,
+html.audiotube-audio-mode #movie_player:not(.ad-showing) .ytp-gradient-bottom { visibility: hidden !important; }
+html.audiotube-audio-mode #movie_player.ad-showing #audiotube-player { display: none !important; }
 .at-brand { display: grid; justify-items: center; gap: 5px; max-width: 80%; text-align: center; }
 .at-brand > span { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 18px; background: #ff0033; font-size: 32px; box-shadow: 0 12px 36px #ff003355; }
 .at-brand strong { margin-top: 8px; font-size: clamp(20px, 3vw, 32px); letter-spacing: -.03em; }
@@ -66,6 +40,18 @@ html.audiotube-audio-mode .ytp-gradient-bottom { visibility: hidden !important; 
 .at-secondary { justify-content: center; width: min(420px, 75%); }
 .at-secondary input { width: 130px; accent-color: #ff0033; }
 .at-secondary select { padding: 6px 9px; border: 1px solid #444; border-radius: 8px; background: #222; color: white; }
+.at-timer { display: flex; align-items: center; gap: 10px; color: #ccc; font-size: 12px; }
+.at-timer[hidden], .at-timer button[hidden] { display: none; }
+.at-timer button { padding: 4px 9px; border: 1px solid #444; border-radius: 8px; background: #242424; color: #fff; cursor: pointer; font-size: 11px; }
+
+/* Shorts: se oculta la imagen y se deja el resto de la interfaz de YouTube. */
+html.audiotube-audio-mode.audiotube-shorts ytd-reel-video-renderer[is-active] video,
+html.audiotube-audio-mode.audiotube-shorts #shorts-player video { opacity: 0 !important; }
+html.audiotube-audio-mode.audiotube-shorts #shorts-player { background: radial-gradient(circle at 50% 40%, #282828 0, #0b0b0b 70%) !important; }
+html.audiotube-audio-mode.audiotube-shorts #shorts-player::after {
+  content: "♫"; position: absolute; inset: 0; display: grid; place-items: center;
+  color: #ff0033; font: 700 64px/1 system-ui, sans-serif; pointer-events: none;
+}
 
 html.audiotube-hide-thumbnails ytd-thumbnail,
 html.audiotube-hide-thumbnails yt-img-shadow.ytd-playlist-thumbnail,

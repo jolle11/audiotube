@@ -42,5 +42,8 @@
   "playPause": { "message": "Reproducir o pausar" },
   "forward": { "message": "Avanzar" },
   "next": { "message": "Siguiente" },
-  "volume": { "message": "Volumen" }
+  "volume": { "message": "Volumen" },
+  "channelAlwaysAudio": { "message": "Solo audio siempre en este canal" },
+  "channelUnknown": { "message": "Canal aún no detectado" },
+  "resumePosition": { "message": "Retomar vídeos largos" }
 }

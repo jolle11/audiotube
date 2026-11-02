@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff2a55"/>
+      <stop offset="1" stop-color="#d1002a"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
+  <!-- Auriculares: arco y almohadillas -->
+  <path d="M30 76V64a34 34 0 0 1 68 0v12" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  <rect x="22" y="68" width="22" height="34" rx="9" fill="#fff"/>
+  <rect x="84" y="68" width="22" height="34" rx="9" fill="#fff"/>
+  <!-- Triángulo de reproducción, guiño a YouTube -->
+  <path d="M56 70v24l20-12z" fill="#fff"/>
+</svg>

@@ -1,0 +1,18 @@
+{
+  "name": "audiotube",
+  "version": "2.1.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node --test test/*.test.mjs",
+    "test:e2e": "playwright test",
+    "icons": "node scripts/icons.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@playwright/test": "^1.64.1",
+    "eslint": "^9.39.0",
+    "globals": "^16.0.0"
+  }
+}
